@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: {
     content: [
@@ -54,6 +56,9 @@ module.exports = {
       '5xl': '2.625rem',
       '6xl': '10rem',
     },
+    colors: {
+      orange: colors.orange
+    }
   },
   variants: {
     borderRadius: ['responsive', 'focus'],
