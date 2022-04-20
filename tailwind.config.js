@@ -42,6 +42,9 @@ module.exports = {
       },
       boxShadow: {
         'lg': '0 -1px 27px 0 rgba(0, 0, 0, 0.04), 0 4px 15px 0 rgba(0, 0, 0, 0.08)',
+      },
+      colors: {
+        orange: colors.orange
       }
     },
     fontSize: {
@@ -56,9 +59,6 @@ module.exports = {
       '5xl': '2.625rem',
       '6xl': '10rem',
     },
-    colors: {
-      orange: colors.orange
-    }
   },
   variants: {
     borderRadius: ['responsive', 'focus'],
