@@ -11,7 +11,7 @@ When we create a new website with statamic, this is our way to go. We cover in t
 
 ## Create the repository
 
-First step is to create the github repository. This will be made by one of our GitHub Admins. Currently: Jan Riefling, Lukas Kukla or Vittorio Emmermann. In this step also the branch setup will be made where the main, staging and develop branch getting the correct rights: Merge is just allowed with a reviewed PR etc.
+A new repository can be created via the statamic template repository here: [Statamic template](https://github.com/cierrateam/statamic-template)
 
 ## Create the root files
 

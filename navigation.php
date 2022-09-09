@@ -27,5 +27,11 @@ return [
             'MacOS (Docker)' => 'docs/env-setups/mac-docker'
         ],
     ],
+    'Github Setups' => [
+        'url' => 'docs/github/index',
+        'children' => [
+            'Repositories' => 'docs/github/repository',
+        ],
+    ],
     'Docs for the Docs' => 'https://jigsaw.tighten.co/docs/installation',
 ];
