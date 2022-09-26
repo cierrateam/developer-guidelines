@@ -1,17 +1,15 @@
 const { colors } = require('tailwindcss/defaultTheme')
 
 module.exports = {
-    purge: {
-        content: [
-            'source/**/*.html',
-            'source/**/*.md',
-            'source/**/*.js',
-            'source/**/*.php',
-            'source/**/*.vue',
+    content: require('fast-glob').sync(
+        [
+            'source/**/*.{blade.php,md,html,vue}',
+            '!source/**/_tmp/*', // exclude temporary files
         ],
-        options: {
-            whitelist: [/language/, /hljs/, /algolia/],
-        },
+        { dot: true }
+    ),
+    options: {
+        whitelist: [/language/, /hljs/, /algolia/],
     },
     theme: {
         extend: {
