@@ -1,25 +1,17 @@
-body {
-    font-size: 17px;
-}
-
 a {
-    @apply .font-semibold;
-    @apply .no-underline;
-    @apply .text-blue-600;
-
-    &:hover {
-        @apply .text-blue-800;
-    }
+    @apply .font-medium;
+    @apply .text-secondary-900;
+    @apply .underline;
 }
 
 blockquote {
-    @apply .border-blue-400;
+    @apply .border-secondary-900;
     @apply .border-l-4;
     @apply .font-normal;
     @apply .italic;
     @apply .my-8;
     @apply .pl-6;
-    @apply .text-gray-800;
+    @apply .text-primary-600;
     @apply .text-lg;
 }
 
