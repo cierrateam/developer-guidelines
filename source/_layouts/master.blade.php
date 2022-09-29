@@ -48,7 +48,7 @@
                         alt="{{ $page->siteName }} logo" /> --}}
                     @include('_assets.svg.logo')
                 </a>
-                <a href="/" title="cierra.de">
+                <a class="text-primary-600 hover:text-secondary-900 transition" href="/" title="cierra.de">
                     cierra.de
                 </a>
             </div>

@@ -18,11 +18,11 @@
 
         <div class="flex justify-center mt-8">
             <a href="/docs/getting-started" title="cierra Developer guideline getting started"
-                class="bg-secondary-900 text-white font-medium tracking-wide text-18 leading-6 rounded-md py-3 px-8 mr-5 sm:mr-8  no-underline">Get
+                class="bg-secondary-900 hover:scale-105 transition text-white font-medium tracking-wide text-18 leading-6 rounded-md py-3 px-8 mr-5 sm:mr-8  no-underline">Get
                 started</a>
 
             <a href="https://cierra.de" title="cierra website"
-                class="self-center text-primary-700 font-medium text-20 leading-30 transition hover:text-secondary-900 after:ml-1 after:bg-secondary-900 after:inline-flex after:p-1 after:rounded-full after:align-middle after:hover:bg-primary-700 after:transition no-underline">About
+                class="self-center text-primary-700 hover:scale-105 font-medium text-20 leading-30 transition hover:text-secondary-900 after:ml-1 after:bg-secondary-900 after:inline-flex after:p-1 after:rounded-full after:align-middle after:hover:bg-primary-700 after:transition no-underline">About
                 cierra</a>
         </div>
     </div>
