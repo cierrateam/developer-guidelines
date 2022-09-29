@@ -39,8 +39,8 @@
     @endif
 </head>
 
-<body class="min-h-screen bg-white">
-    <header class="absolute w-full flex items-center py-6 sm:py-5" role="banner">
+<body class="min-h-screen bg-white overflow-x-hidden">
+    <header class="z-30 absolute w-full flex items-center py-6 sm:py-5" role="banner">
         <div class="container mx-auto max-w-8xl px-4 xl:px-0">
             <div class="flex items-center justify-between">
                 <a href="/" title="{{ $page->siteName }} home">
@@ -50,6 +50,7 @@
                 </a>
                 <a href="/" title="cierra.de">
                     cierra.de
+                </a>
             </div>
 
             <div class="flex flex-1 justify-end items-center text-right md:pl-10">
@@ -70,7 +71,8 @@
 
     @stack('scripts')
 
-    <footer class="absolute bottom:0 flex text-center justify-center flex-col sm:flex-row w-full pt-20 sm:pt-40 pb-8"
+    <footer
+        class="absolute bottom:0 flex text-center justify-center flex-col sm:flex-row w-full pt-16 sm:pt-40 pb-5 sm:pb-8"
         role="contentinfo">
         <p class="text-sm tracking-wider font-medium leading-5 text-primary-600 m-0 pr-1 pb-4 sm:pb-0">
             © {{ date('Y') }} <a href="https://www.cierra.de/">Cierra</a>. Made with
