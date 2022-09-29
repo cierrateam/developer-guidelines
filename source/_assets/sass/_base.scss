@@ -1,7 +1,130 @@
+
+/* Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply text-primary-900;
+    @apply mb-4;
+    @apply mt-8;
+
+    &:first-child {
+        @apply mt-0;
+    }
+}
+
+h1 {
+    @apply font-bold tracking-wider text-32 md:text-[4.875rem] leading-41 md:leading-[6.035rem];
+}
+
+h2 {
+    @apply font-semibold tracking-wide text-32 md:text-[4.25rem] leading-41 md:leading-[5.2083rem];
+}
+
+h3 {
+    @apply font-semibold tracking-wide text-2xl md:text-[2.125rem] md:leading-[2.6875rem];
+}
+
+h4 {
+    @apply font-medium tracking-wide text-18 md:text-28 leading-26 md:leading-38;
+}
+
+h5 {
+    @apply font-medium tracking-wide text-xl;
+}
+
+h6 { 
+    @apply font-medium text-lg;
+}
+
+p {
+    @apply text-primary-600 font-medium tracking-wider text-base my-5 sm:my-6;
+}
+
 a {
     @apply font-medium;
     @apply text-secondary-900;
     @apply underline;
+}
+
+li {
+    ul,
+    ol {
+        @apply my-0;
+    }
+}
+
+ol,
+ul {
+    @apply my-4;
+}
+
+ol {
+    @apply list-decimal;
+}
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//     @apply leading-tight;
+//     @apply mb-4;
+//     @apply mt-8;
+//     @apply text-gray-900;
+
+//     &:first-child {
+//         @apply mt-0;
+//     }
+// }
+
+// h1 {
+//     @apply font-extrabold;
+//     @apply text-5xl;
+// }
+
+// h2 {
+//     @apply font-bold;
+//     @apply text-4xl;
+// }
+
+// h3 {
+//     @apply font-bold;
+//     @apply text-3xl;
+// }
+
+// h4 {
+//     @apply font-normal;
+//     @apply text-2xl;
+// }
+
+// h5 {
+//     @apply font-normal;
+//     @apply text-xl;
+// }
+
+// h6 {
+//     @apply font-light;
+//     @apply text-lg;
+// }
+
+    // p {
+    //     @apply my-3;
+    
+    //     @screen md {
+    //         @apply my-6;
+    //     }
+    // }
+
+hr {
+    @apply border-b;
+    @apply border-blue-200;
+    @apply my-12;
+    @apply rounded-full;
 }
 
 blockquote {
@@ -32,83 +155,6 @@ code.hljs {
     .hljs-meta {
         @apply font-normal;
         @apply not-italic;
-    }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    @apply leading-tight;
-    @apply mb-4;
-    @apply mt-8;
-    @apply text-gray-900;
-
-    &:first-child {
-        @apply mt-0;
-    }
-}
-
-h1 {
-    @apply font-extrabold;
-    @apply text-5xl;
-}
-
-h2 {
-    @apply font-bold;
-    @apply text-4xl;
-}
-
-h3 {
-    @apply font-bold;
-    @apply text-3xl;
-}
-
-h4 {
-    @apply font-normal;
-    @apply text-2xl;
-}
-
-h5 {
-    @apply font-normal;
-    @apply text-xl;
-}
-
-h6 {
-    @apply font-light;
-    @apply text-lg;
-}
-
-hr {
-    @apply border-b;
-    @apply border-blue-200;
-    @apply my-12;
-    @apply rounded-full;
-}
-
-li {
-    ul,
-    ol {
-        @apply my-0;
-    }
-}
-
-ol,
-ul {
-    @apply my-4;
-}
-
-ol {
-    @apply list-decimal;
-}
-
-p {
-    @apply my-3;
-
-    @screen md {
-        @apply my-6;
     }
 }
 

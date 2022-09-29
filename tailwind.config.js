@@ -23,7 +23,7 @@ module.exports = {
                     // blue
                     // 100: '#F0F4F8',
                     // 200: '#D9E2EC',
-                    // 300: '#BCCCDC',
+                    300: '#BCCCDC',
                     400: '#9FB3C8',
                     500: '#829AB1',
                     600: '#486581',
@@ -46,6 +46,11 @@ module.exports = {
                 mono: ['monospace'],
             },
             fontSize: {
+                18: '1.125rem',
+                20: '1.25rem',
+                22: '1.375rem',
+                28: '1.75rem',
+                32: '2rem',
                 '2xl': '1.5rem',
                 '3xl': '1.75rem',
                 '4xl': '2.125rem',
@@ -57,8 +62,10 @@ module.exports = {
                 wider: '0.03em',
             },
             lineHeight: {
-                normal: '1.6',
-                loose: '1.75',
+                26: '1.625rem',
+                30: '1.875rem',
+                38: '2.375rem',
+                41: '2.5625rem',
             },
             maxWidth: {
                 none: 'none',
@@ -67,14 +74,11 @@ module.exports = {
             },
             spacing: {
                 7: '1.75rem',
+                7.5: '1.875rem',
                 9: '2.25rem',
+                180: '45rem',
             },
         },
-    },
-    variants: {
-        borderRadius: ['responsive', 'focus'],
-        borderWidth: ['responsive', 'active', 'focus'],
-        width: ['responsive', 'focus'],
     },
     plugins: [
         function ({ addUtilities }) {
