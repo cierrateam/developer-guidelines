@@ -12,6 +12,13 @@ module.exports = {
         whitelist: [/language/, /hljs/, /algolia/],
     },
     theme: {
+        screens: {
+            sm: '640px',
+            md: '768px',
+            lg: '1024px',
+            xl: '1280px',
+            '2xl': '1440px',
+        },
         extend: {
             boxShadow: {
                 lg: '0 -1px 27px 0 rgba(0, 0, 0, 0.04), 0 4px 15px 0 rgba(0, 0, 0, 0.08)',
