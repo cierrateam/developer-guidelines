@@ -17,7 +17,6 @@ module.exports = {
                 lg: '0 -1px 27px 0 rgba(0, 0, 0, 0.04), 0 4px 15px 0 rgba(0, 0, 0, 0.08)',
             },
             colors: {
-                orange: colors.orange,
                 white: '#FFFEFD',
                 primary: {
                     // blue
@@ -69,8 +68,8 @@ module.exports = {
             },
             maxWidth: {
                 none: 'none',
-                '7xl': '80rem',
                 '8xl': '74.5rem', //  1192px
+                '9xl': '90rem', // 1440px
             },
             spacing: {
                 7: '1.75rem',
