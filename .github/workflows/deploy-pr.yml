@@ -46,7 +46,7 @@ jobs:
           composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist 
           npm install
           npm run prod
-          ./vendor/bin/jigsaw build production
+          ./vendor/bin/jigsaw build pr
           cd ..
       
       
@@ -60,7 +60,7 @@ jobs:
       
       - name: Push files to target
         run: |
-          cp -r pr-build/build_production/* pr-deploy
+          cp -r pr-build/build_pr/* pr-deploy
           cd pr-deploy
           git add .
           git commit -m $GITHUB_SHA
