@@ -37,35 +37,32 @@ jobs:
           
       - name: Checkout Repo
         uses: actions/checkout@v2
+        with:
+          path: 'pr-build'
+      
+      - name: Build Pull Request
+        run: |
+          cd pr-build
+          composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist 
+          npm install
+          npm run prod
+          ./vendor/bin/jigsaw build production
+          cd ..
+      
       
       - name: Checkout temporary deployment target repo
         uses: actions/checkout@v2
         with:
           repository: cierrateam/${{ env.PR_REPO_NAME }}
+          path: 'pr-deploy'
           token: ${{ secrets.PAT }}
 
-      - name: Install Composer Dependencies
-        run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist      
       
-      - name: Install NPM Dependencies
-        run: npm install
-
-      - name: Build assets
-        run: npm run prod
-
-      - name: Build Jigsaw site
-        run: ./vendor/bin/jigsaw build production
-
-      - name: Stage Files
-        run: git add -f build_production
-
-      - name: Commit files
+      - name: Push files to target
         run: |
-          git config --global user.name github-actions
-          git config --global user.email github-actions@github.com
-          git commit -m "Build for deploy"
-      - name: Publish
-        run: |
-          git subtree split --prefix build_production -b gh-pages
-          git push -f origin gh-pages:gh-pages
-          git branch -D gh-pages
+          cp -r pr-build/build_production/* pr-deploy
+          cd pr-deploy
+          git add .
+          git commit -m $GITHUB_SHA
+          git branch -M gh-pages
+          git push -u origin gh-pages
