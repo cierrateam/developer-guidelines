@@ -1,0 +1,70 @@
+name: Pull Request Build and Deploy
+on:
+  pull_request:
+    branches: [ development ]
+    paths-ignore:
+      - '.github/workflows/**'
+
+env:
+  PR_REPO_NAME: guidelines-pr-${{ github.event.pull_request.node_id }}
+
+jobs:
+  create-page-host:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create new repository for temporary deployment
+        uses: octobay/create-repository-action@v1
+        with:
+          name: ${{ env.PR_REPO_NAME }}
+          org: cierrateam
+          access-token: ${{ secrets.PAT }}
+    
+  pr-build-deploy:
+    needs: create-page-host
+    runs-on: ubuntu-latest
+    environment: 
+      name: pr-staging
+      url: https://cierrateam.github.io/${{ env.PR_REPO_NAME }}/
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+      
+      # https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
+      - name: Set GitHub Actions as Commit Author
+        run: |
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
+          
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+          
+      - name: Install Composer Dependencies
+        run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+      
+      
+      - name: Install NPM Dependencies
+        run: npm install
+      - name: Build assets
+        run: npm run prod
+      - name: Build Jigsaw site
+        run: ./vendor/bin/jigsaw build production
+      
+      - name: Checkout temporary deployment target repo
+        uses: actions/checkout@v2
+        with:
+          repository: cierrateam/${{ env.PR_REPO_NAME }}
+          token: ${{ secrets.PAT }}
+
+      - name: Stage Files
+        run: git add -f build_pr
+      - name: Commit files
+        run: |
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
+          git commit -m "Build for deploy"
+      - name: Publish
+        run: |
+          git subtree split --prefix build_pr -b gh-pages
+          git push -f origin gh-pages:gh-pages
+          git branch -D gh-pages

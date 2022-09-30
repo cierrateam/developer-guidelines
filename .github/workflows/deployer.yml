@@ -24,8 +24,8 @@ jobs:
         run: git add -f build_production
       - name: Commit files
         run: |
-          git config --local user.email "jasim@cierra.de"
-          git config --local user.name "Jasim Uddin"
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
           git commit -m "Build for deploy"
       - name: Publish
         run: |
