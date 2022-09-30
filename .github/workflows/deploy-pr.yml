@@ -37,18 +37,6 @@ jobs:
           
       - name: Checkout Repo
         uses: actions/checkout@v2
-
-          
-      - name: Install Composer Dependencies
-        run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
-      
-      
-      - name: Install NPM Dependencies
-        run: npm install
-      - name: Build assets
-        run: npm run prod
-      - name: Build Jigsaw site
-        run: ./vendor/bin/jigsaw build production
       
       - name: Checkout temporary deployment target repo
         uses: actions/checkout@v2
@@ -56,8 +44,21 @@ jobs:
           repository: cierrateam/${{ env.PR_REPO_NAME }}
           token: ${{ secrets.PAT }}
 
+      - name: Install Composer Dependencies
+        run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist      
+      
+      - name: Install NPM Dependencies
+        run: npm install
+
+      - name: Build assets
+        run: npm run prod
+
+      - name: Build Jigsaw site
+        run: ./vendor/bin/jigsaw build production
+
       - name: Stage Files
         run: git add -f build_production
+
       - name: Commit files
         run: |
           git config --global user.name github-actions
