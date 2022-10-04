@@ -1,7 +1,6 @@
-{{-- todo: apply text-secondary-900 on li, if child a tag isActive, to make list-disc the same color as text --}}
-{{-- <li class="{{ $page->isActive($url) ? 'text-secondary-900' : '' }} pl-4"> --}}
-<li class="pl-4">
-    @if ($url = is_string($item) ? $item : $item->url)
+@php $url = is_string($item) ? $item : $item->url @endphp
+<li class="{{ $page->isActive($url) ? 'text-secondary-900' : '' }} pl-4 hover:text-secondary-900 transition">
+    @if ($url)
     {{-- Menu item with URL--}}
     <a href="{{ $page->url($url) }}"
         class="{{ 'lvl' . $level }} {{ $page->isActiveParent($item) ? 'lvl' . $level . '-active' : '' }} {{ $page->isActive($url) ? 'active text-secondary-900' : '' }} nav-menu__item">
