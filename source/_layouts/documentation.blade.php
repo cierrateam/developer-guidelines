@@ -8,9 +8,6 @@
         <div class="container mx-auto max-w-8xl px-4 xl:px-0">
             <div class="flex items-center justify-between">
                 <a href="/" title="{{ $page->siteName }} home">
-                    {{-- <img class="h-8 md:h-10 mr-3" src="/assets/img/cierra-dark.png"
-                        alt="{{ $page->siteName }} logo" />
-                    --}}
                     @include('_assets.svg.logo-dark')
                 </a>
                 <a class="text-white lg:text-primary-600 hover:text-secondary-900 transition tracking-wide text-18"
@@ -31,13 +28,27 @@
 
     <main role="main" class="container mx-auto max-w-9xl px-4 lg:px-0">
         <div class="flex flex-col lg:flex-row">
-            <nav id="js-nav-menu" class="nav-menu hidden lg:block bg-primary-900 pt-32">
-                <h4 class="text-white">Content</h4>
+            <nav id="js-nav-menu"
+                class="lg:z-40 nav-menu hidden lg:block bg-primary-900 pt-[4.25rem] xl:pl-16 2xl:pl-[7.75rem]">
+
+                <div class="hidden sm:block ml-4"> <a href="/" title="{{ $page->siteName }} home">
+                        @include('_assets.svg.logo-dark')
+                    </a> </div>
+
+                <h4 class="text-white pl-4 pt-2 lg:pt-11 mt-[4.25rem] sm:mt-7">Content</h4>
 
                 @include('_nav.menu', ['items' => $page->navigation])
+
+                <li class="pb-6 ml-2.5">
+                    <a href="https://jigsaw.tighten.co/docs/installation"
+                        class="nav-menu__item lvl1 inline-block text-white font-semibold tracking-wide group group-hover:text-secondary-900">
+                        Docs for the Docs
+                        <span class="ml-1.5">@include('_assets.svg.docs-icon')</span>
+                    </a>
+                </li>
             </nav>
 
-            <div class="DocSearch-content w-full lg:w-3/5 break-words lg:pl-4 pt-32 -mb-20" v-pre>
+            <div class="DocSearch-content w-full lg:w-2/3 break-words lg:ml-14 mt-32 lg:mt-36 -mb-20" v-pre>
 
                 @yield('content')
 
