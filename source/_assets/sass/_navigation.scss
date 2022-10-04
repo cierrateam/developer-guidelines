@@ -16,10 +16,20 @@
 }
 
 .nav-menu__item {
+    @apply text-primary-400 leading-6 tracking-wide hover:text-secondary-900 transition;
     @apply block;
     @apply no-underline;
+    @apply -ml-4;
     @apply mb-3;
     @apply mt-0;
-    @apply text-gray-800;
     @apply text-sm;
+}
+
+// Navigation links
+a.lvl0, a.lvl1 {
+    @apply  inline-block;
+}
+
+a.lvl0 {
+    @apply text-white font-semibold;
 }

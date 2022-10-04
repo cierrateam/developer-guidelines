@@ -37,7 +37,7 @@ h5 {
 }
 
 h6 { 
-    @apply font-medium text-lg;
+    @apply font-medium tracking-wide text-lg;
 }
 
 p {
@@ -45,84 +45,28 @@ p {
 }
 
 a {
-    @apply font-medium;
-    @apply text-secondary-900;
-    @apply underline;
+    @apply text-secondary-900 font-medium tracking-wide underline;
 }
 
 li {
     ul,
     ol {
-        @apply my-0;
+        @apply my-0 list-disc;
     }
 }
 
 ol,
 ul {
-    @apply my-4;
+    @apply text-primary-600 tracking-wide my-4;
 }
 
 ol {
     @apply list-decimal;
 }
 
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6 {
-//     @apply leading-tight;
-//     @apply mb-4;
-//     @apply mt-8;
-//     @apply text-gray-900;
-
-//     &:first-child {
-//         @apply mt-0;
-//     }
-// }
-
-// h1 {
-//     @apply font-extrabold;
-//     @apply text-5xl;
-// }
-
-// h2 {
-//     @apply font-bold;
-//     @apply text-4xl;
-// }
-
-// h3 {
-//     @apply font-bold;
-//     @apply text-3xl;
-// }
-
-// h4 {
-//     @apply font-normal;
-//     @apply text-2xl;
-// }
-
-// h5 {
-//     @apply font-normal;
-//     @apply text-xl;
-// }
-
-// h6 {
-//     @apply font-light;
-//     @apply text-lg;
-// }
-
-    // p {
-    //     @apply my-3;
-    
-    //     @screen md {
-    //         @apply my-6;
-    //     }
-    // }
-
 hr {
     @apply border-b;
-    @apply border-blue-200;
+    @apply border-secondary-900;
     @apply my-12;
     @apply rounded-full;
 }
@@ -139,11 +83,13 @@ blockquote {
 }
 
 code {
-    @apply bg-gray-300;
+    @apply text-secondary-900;
+    @apply bg-secondary-100;
     @apply px-2;
     @apply py-px;
-    @apply rounded;
+    @apply rounded-full;
     @apply text-sm;
+    @apply tracking-wider;
 }
 
 code.hljs {
@@ -159,16 +105,17 @@ code.hljs {
 }
 
 pre {
-    @apply bg-gray-200;
+    @apply bg-primary-100;
     @apply leading-loose;
-    @apply my-6;
-    @apply overflow-x-auto;
-    @apply p-4;
-    @apply rounded;
-    @apply shadow;
-    @apply text-base;
-
+    @apply p-5 sm:py-6 sm:px-7;
+    @apply rounded-xl;
+    @apply border;
+    @apply border-secondary-900;
+    @apply text-lg;
+    
     code {
+        @apply rounded-none;
+        @apply overflow-x-auto;
         @apply bg-transparent;
         @apply block;
         @apply p-0;
@@ -176,6 +123,6 @@ pre {
 }
 
 ::selection {
-    @apply bg-blue-500;
+    @apply bg-primary-600;
     @apply text-white;
 }

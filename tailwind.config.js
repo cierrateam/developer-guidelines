@@ -27,7 +27,7 @@ module.exports = {
                 white: '#FFFEFD',
                 primary: {
                     // blue
-                    // 100: '#F0F4F8',
+                    100: '#F0F4F8',
                     // 200: '#D9E2EC',
                     300: '#BCCCDC',
                     400: '#9FB3C8',
@@ -39,7 +39,7 @@ module.exports = {
                 },
                 secondary: {
                     // orange
-                    // 100: '#FFE8D9',
+                    100: '#FFE8D9',
                     // 200: '#FFD0B5',
                     // 300: '#FFB088',
                     // 400: '#FF9466',
