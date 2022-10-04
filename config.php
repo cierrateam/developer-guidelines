@@ -5,8 +5,10 @@ use Illuminate\Support\Str;
 return [
     'baseUrl' => '',
     'production' => false,
-    'siteName' => 'cierra Developer Guideline',
+    'siteName' => 'cierra Developer Guideline (HEAD)',
     'siteDescription' => 'A full guide for developers at cierra.',
+    'basePath' => env('PR_REPO_NAME') ? '/' . env('PR_REPO_NAME') : '',
+
 
     // Algolia DocSearch credentials
     'docsearchApiKey' => env('DOCSEARCH_KEY'),

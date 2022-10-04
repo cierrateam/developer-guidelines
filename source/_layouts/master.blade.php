@@ -30,7 +30,7 @@
         @yield('body')
     </main>
 
-    <script src="{{ mix('js/main.js', 'assets/build') }}"></script>
+    <script src="{{ $page->basePath . mix('js/main.js', 'assets/build') }}"></script>
 
     @stack('scripts')
 
