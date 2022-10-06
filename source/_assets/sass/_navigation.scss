@@ -1,33 +1,35 @@
 .nav-menu {
-    @apply .-mt-12;
-    @apply .-mx-8;
-    @apply .bg-gray-200;
-    @apply .mb-8;
-    @apply .pb-4;
-    @apply .pt-8;
-    @apply .px-4;
-    @apply .shadow;
-    @apply .w-auto;
+    @apply -mt-12 -mb-20;
+    @apply -mx-8;
+    @apply pt-8;
+    @apply px-4;
+    @apply shadow;
+    @apply w-auto;
 
     @screen lg {
-        @apply .-mx-4;
-        @apply .bg-transparent;
-        @apply .block;
-        @apply .border-b-0;
-        @apply .mt-1;
-        @apply .pl-0;
-        @apply .pr-4;
-        @apply .pt-0;
-        @apply .shadow-none;
-        @apply .w-1/4;
+        @apply -mx-0;
+        @apply pl-0;
+        @apply pr-0;
+        @apply pt-0;
+        @apply w-1/4;
     }
 }
 
 .nav-menu__item {
-    @apply .block;
-    @apply .no-underline;
-    @apply .mb-3;
-    @apply .mt-0;
-    @apply .text-gray-800;
-    @apply .text-sm;
+    @apply text-primary-400 leading-6 tracking-wide hover:text-secondary-900 transition;
+    @apply block;
+    @apply no-underline;
+    @apply -ml-4;
+    @apply mb-3;
+    @apply mt-0;
+    @apply text-sm;
+}
+
+// Navigation links
+a.lvl0, a.lvl1 {
+    @apply  inline-block;
+}
+
+a.lvl0 {
+    @apply text-white font-semibold;
 }
