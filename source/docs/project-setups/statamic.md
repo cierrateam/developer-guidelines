@@ -15,7 +15,7 @@ A new repository can be created via the statamic template repository here: [Stat
 
 ## Create the root files
 
-Now we wanna create the base project and the root files for the project. To do so we enter the following command in our terminal, replace PROJECT with the name of the project (full domain of the project!) and make sure the statamic CLI is installed (https://statamic.dev/installing/local) :
+Now we wanna create the base project and the root files for the project. To do so we enter the following command in our terminal, replace PROJECT with the name of the project (full domain of the project!) and make sure the [statamic CLI](https://statamic.dev/installing/local) is installed:
 
 ```bash
 statamic new PROJECT studio1902/statamic-peak
