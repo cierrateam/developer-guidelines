@@ -33,5 +33,11 @@ return [
             'Repositories' => 'docs/github/repository',
         ],
     ],
+    'Error handling / Debugging' => [
+        'url' => 'docs/error-handling/index',
+        'children' => [
+            'Bugsnag' => 'docs/error-handling/bugsnag',
+        ]
+        ],
     'Docs for the Docs' => 'https://jigsaw.tighten.co/docs/installation',
 ];
