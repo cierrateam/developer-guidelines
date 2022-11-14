@@ -1,33 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
  <url>
-  <loc>https://jigsaw-docs-template.tighten.co/docs/algolia-docsearch</loc>
-  <lastmod>2022-04-19T21:44:32+02:00</lastmod>
-  <changefreq>daily</changefreq>
- </url>
- <url>
-  <loc>https://jigsaw-docs-template.tighten.co/docs/custom-404-page</loc>
-  <lastmod>2022-04-19T21:44:32+02:00</lastmod>
-  <changefreq>daily</changefreq>
- </url>
- <url>
-  <loc>https://jigsaw-docs-template.tighten.co/docs/customizing-your-site</loc>
-  <lastmod>2022-04-19T21:44:32+02:00</lastmod>
-  <changefreq>daily</changefreq>
- </url>
- <url>
-  <loc>https://jigsaw-docs-template.tighten.co/docs/getting-started</loc>
-  <lastmod>2022-04-19T21:44:32+02:00</lastmod>
-  <changefreq>daily</changefreq>
- </url>
- <url>
-  <loc>https://jigsaw-docs-template.tighten.co/docs/navigation</loc>
-  <lastmod>2022-04-19T21:44:32+02:00</lastmod>
+  <loc>https://jigsaw-docs-template.tighten.co/favicon.png</loc>
+  <lastmod>2022-11-14T16:43:37+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://jigsaw-docs-template.tighten.co</loc>
-  <lastmod>2022-04-19T21:44:32+02:00</lastmod>
+  <lastmod>2022-11-14T16:43:37+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://jigsaw-docs-template.tighten.co/docs/project-setups/anyhelpnow</loc>
+  <lastmod>2022-11-14T16:43:37+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://jigsaw-docs-template.tighten.co/docs/project-setups/statamic</loc>
+  <lastmod>2022-11-14T16:43:37+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://jigsaw-docs-template.tighten.codocs/deployments</loc>
+  <lastmod>2022-11-14T16:43:37+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://jigsaw-docs-template.tighten.co/docs/deployments/nuxt-forge</loc>
+  <lastmod>2022-11-14T16:43:37+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://jigsaw-docs-template.tighten.co/docs/getting-started</loc>
+  <lastmod>2022-11-14T16:43:37+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://jigsaw-docs-template.tighten.codocs/github</loc>
+  <lastmod>2022-11-14T16:43:37+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://jigsaw-docs-template.tighten.co/docs/github/repository</loc>
+  <lastmod>2022-11-14T16:43:37+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://jigsaw-docs-template.tighten.codocs/error-handling</loc>
+  <lastmod>2022-11-14T16:43:37+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://jigsaw-docs-template.tighten.co/docs/error-handling/bugsnag</loc>
+  <lastmod>2022-11-14T16:43:37+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
 </urlset>

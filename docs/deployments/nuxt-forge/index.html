@@ -4,12 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Getting started with Jigsaw&#039;s docs starter template is as easy as 1, 2, 3.">
+        <meta name="description" content="When we create a new website with nuxt, that are our steps to deploy it with forge.">
 
         <meta property="og:site_name" content="cierra Developer Guideline"/>
-        <meta property="og:title" content="Getting Started | cierra Developer Guideline"/>
-        <meta property="og:description" content="Getting started with Jigsaw&#039;s docs starter template is as easy as 1, 2, 3."/>
-        <meta property="og:url" content="https://jigsaw-docs-template.tighten.co/docs/getting-started"/>
+        <meta property="og:title" content="Setup Nuxt.js with Forge | cierra Developer Guideline"/>
+        <meta property="og:description" content="When we create a new website with nuxt, that are our steps to deploy it with forge."/>
+        <meta property="og:url" content="https://jigsaw-docs-template.tighten.co/docs/deployments/nuxt-forge"/>
         <meta property="og:image" content="/assets/img/cierra-dark.png"/>
         <meta property="og:type" content="website"/>
 
@@ -17,7 +17,7 @@
         <meta name="twitter:card" content="summary_large_image">
 
         
-        <title>cierra Developer Guideline | Getting Started</title>
+        <title>cierra Developer Guideline | Setup Nuxt.js with Forge</title>
 
         <link rel="home" href="https://jigsaw-docs-template.tighten.co">
         <link rel="icon" type="image/png" href="/favicon.png"/>
@@ -71,7 +71,7 @@
             <li class="pl-4">
             
         <a href="/docs/getting-started"
-            class="lvl0  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
+            class="lvl0   nav-menu__item hover:text-blue-500"
         >
             Getting Started
         </a>
@@ -104,7 +104,7 @@
             <li class="pl-4">
             
         <a href="/docs/deployments/index"
-            class="lvl0   nav-menu__item hover:text-blue-500"
+            class="lvl0 lvl0-active  nav-menu__item hover:text-blue-500"
         >
             Deployment Setups
         </a>
@@ -114,7 +114,7 @@
             <li class="pl-4">
             
         <a href="/docs/deployments/nuxt-forge"
-            class="lvl1   nav-menu__item hover:text-blue-500"
+            class="lvl1  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
         >
             Nuxt Forge
         </a>
@@ -225,75 +225,169 @@
         </nav>
 
         <div class="DocSearch-content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-            <h1 id="getting-started">Getting Started</h1>
+            <h2>1- Pre-requisits</h2>
 
-<p>This is a starter template for creating a beautiful, customizable documentation site for your project with minimal effort. You’ll only have to change a few settings and you’re ready to go.</p>
+<p>Before starting to describe the process of deploying a Nuxt app with Laravel Forge, I will assume that you have already:</p>
 
-<h2 id="getting-started-configuration">Configuration</h2>
+<ul>
+<li>Deployed a server with Forge using hetzner. This server must be running Node v8 or later (see below for upgrade)</li>
+<li>Your github account is linked with Forge</li>
+<li>Created a Nuxt app and linked it to a github repository under a master branch. We will call this repository <code>nuxt-forge-client</code></li>
+<li>Setup a domain that we will call <code>nuxt-forge.com</code>. Please make sure to replace any reference to this domain by your own domain. Please make sure your domain is pointing to your server IP provisioned with Forge.</li>
+</ul>
 
-<p>As with all Jigsaw sites, configuration settings can be found in <code>config.php</code>; you can update the variables in that file with settings specific to your project. You can also add new configuration variables there to use across your site; take a look at the <a href="http://jigsaw.tighten.co/docs/site-variables/">Jigsaw documentation</a> to learn more.</p>
+<p>To update your Node version with Forge:
+* connect to your server via terminal with ssh
+* edit the <code>/etc/apt/sources.list.d/nodesource.list</code> file by just replacing the right version number. From me, I just replaced 6 to 8
+* <code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code> for the changes to take effect. You will find your sudo password with the email you received from Forge when provisioning your server.</p>
 
-<pre><code class="language-php">// config.php
-return [
-    'baseUrl' =&gt; 'https://my-awesome-jigsaw-site.com/',
-    'production' =&gt; false,
-    'siteName' =&gt; 'My Site',
-    'siteDescription' =&gt; 'Give your documentation a boost with Jigsaw.',
-    'docsearchApiKey' =&gt; '',
-    'docsearchIndexName' =&gt; '',
-    'navigation' =&gt; require_once('navigation.php'),
-];
+<h2>2- Setup a new site in Forge</h2>
+
+<ul>
+<li>Domain: <code>nuxt-forge.com</code></li>
+<li>Aliases: <code></code>(Leave it  blank)</li>
+<li>Project type: <code>Static HTML</code></li>
+<li>Web Directory: <code>/</code></li>
+<li>Leave the <code>Allow Wildcard Sub-Domains</code> checkbox unchecked</li>
+</ul>
+
+<p><strong>Note:</strong> The Project type in Forge is not linked to the project type with Nuxt. Using this setting will still enable you to use SPA and Universal apps with Nuxt.js .</p>
+
+<h2>3- Github repository</h2>
+
+<p>Under your server, select the site you have just created and under Apps in the menu, link your Github repository to your new site:
+* Provider: <code>Github</code>
+* Repository: <code>sbkl/nuxt-forge-client</code> (sbkl is my Github username. nuxt-forge-client the Github repository)
+* Branch: <code>master</code>
+* Uncheck the <code>Install Composer dependencies</code> as we are not using PHP for this app
+* Click <code>Install Repository</code></p>
+
+<h2>4- SSL</h2>
+
+<p>Once your new site is available, select SSL in the menu and add your SSL certificates. I'm using Let's Encrypt. You need to wait for Forge to install the certificates and activate them before to go further.</p>
+
+<h2>5- Apps: Deployment</h2>
+
+<p>Select Apps in the menu and click on <code>Enable Quick Deploy</code> under the Deployment section.</p>
+
+<p>Quick deploy is a functionality that Forge is providing. Each time you push new commits to your project under the master branch, Forge will automatically deploy the changes to production using the script under the Deploy Script section below.</p>
+
+<h2>6- Apps: Deploy Script</h2>
+
+<p>In the Deploy Script section, replace the initial script with the script below:</p>
+
+<pre><code>cd /home/forge/nuxt-forge.com
+
+git checkout .
+
+git pull origin master
+
+npm install --production
+
+npm run build
+
+pm2 start npm --name "nuxt-forge.com" --watch -- start
 </code></pre>
 
-<blockquote>
-  <p>Tip: This configuration file is also where you’ll define any "collections" (for example, a collection of the contributors to your site, or a collection of blog posts). Check out the official <a href="https://jigsaw.tighten.co/docs/collections/">Jigsaw documentation</a> to learn more.</p>
-</blockquote>
+<p>Once done, click on <code>Save Script</code>.</p>
 
-<hr />
+<h2>7- Nginx configuration file</h2>
 
-<h3 id="getting-started-adding-content">Adding Content</h3>
+<p>Go at the bottom of the page where you should find a button <code>Files</code>. Click on this button and select <code>Edit Nginx configuration</code>.</p>
 
-<p>You can write your content using a <a href="http://jigsaw.tighten.co/docs/content-other-file-types/">variety of file types</a>. By default, this starter template expects your content to be located in the <code>source/docs</code> folder. If you change this, be sure to update the URL references in <a href="/docs/navigation.php">navigation.php</a>.</p>
+<p>The Nginx config below is largely inspired by the existing one under the <a href="https://nuxtjs.org/faq/nginx-proxy">Using nginx as a proxy</a> section of the Nuxt.js faq but got some differences. It also assumes that you already have created your SSL certificates as described above.</p>
 
-<p><a href="/docs/navigation">Read more about navigation.</a></p>
+<pre><code># FORGE CONFIG (DO NOT REMOVE!)
+include forge-conf/nuxt-forge.com/before/*;
 
-<p>The first section of each content page contains a YAML header that specifies how it should be rendered. The <code>title</code> attribute is used to dynamically generate HTML <code>title</code> and OpenGraph tags for each page. The <code>extends</code> attribute defines which parent Blade layout this content file will render with (e.g. <code>_layouts.documentation</code> will render with <code>source/_layouts/documentation.blade.php</code>), and the <code>section</code> attribute defines the Blade "section" that expects this content to be placed into it.</p>
+map $sent_http_content_type $expires {
+    "text/html"                 epoch;
+    "text/html; charset=utf-8"  epoch;
+    default                     off;
+}
 
-<pre><code class="language-yaml">---
-title: Navigation
-description: Building a navigation menu for your site
-extends: _layouts.documentation
-section: content
----
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name .nuxt-forge.com;
+    root /home/forge/nuxt-forge.com/;
+
+    # FORGE SSL (DO NOT REMOVE!)
+    ssl_certificate /etc/nginx/ssl/nuxt-forge.com/123456/server.crt;
+    ssl_certificate_key /etc/nginx/ssl/nuxt-forge.com/123456/server.key;
+
+    ssl_protocols TLSv1.2;
+    ssl_ciphers ECDHE-*********************************************************************;
+    ssl_prefer_server_ciphers on;
+    ssl_dhparam /etc/nginx/dhparams.pem;
+
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+
+    charset utf-8;
+
+    # FORGE CONFIG (DO NOT REMOVE!)
+    include forge-conf/nuxt-forge.com/server/*;
+
+    location / {
+        expires $expires;
+
+        proxy_redirect off;
+        proxy_set_header Host               $host;
+        proxy_set_header X-Real-IP          $remote_addr;
+        proxy_set_header X-Forwarded-For    $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto  $scheme;
+        proxy_read_timeout          1m;
+        proxy_connect_timeout       1m;
+        proxy_pass                          http://127.0.0.1:3000; # set the address of the Node.js
+    }
+
+    access_log off;
+    error_log  /var/log/nginx/nuxt-forge.com-error.log error;
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+# FORGE CONFIG (DO NOT REMOVE!)
+include forge-conf/nuxt-forge.com/after/*;
 </code></pre>
 
-<p><a href="https://jigsaw.tighten.co/docs/content-blade/">Read more about Jigsaw layouts.</a></p>
+<p>Once done, click the <code>Save</code> button.</p>
 
-<hr />
+<p>Once complete, you should see the following message:</p>
 
-<h3 id="getting-started-adding-assets">Adding Assets</h3>
+<p>nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful</p>
 
-<p>Any assets that need to be compiled (such as JavaScript, Less, or Sass files) can be added to the <code>source/_assets/</code> directory, and Laravel Mix will process them when running <code>npm run dev</code> or <code>npm run prod</code>. The processed assets will be stored in <code>/source/assets/build/</code> (note there is no underscore on this second <code>assets</code> directory).</p>
+<p>Click <code>OK</code>.</p>
 
-<p>Then, when Jigsaw builds your site, the entire <code>/source/assets/</code> directory containing your built files (and any other directories containing static assets, such as images or fonts, that you choose to store there) will be copied to the destination build folders (<code>build_local</code>, on your local machine).</p>
+<h2>8- Time to deploy</h2>
 
-<p>Files that don't require processing (such as images and fonts) can be added directly to <code>/source/assets/</code>.</p>
+<p>The configuration is now ready to deploy your app for the first time.</p>
 
-<p><a href="http://jigsaw.tighten.co/docs/compiling-assets/">Read more about compiling assets in Jigsaw using Laravel Mix.</a></p>
+<p>Select Apps in the menu and click the <code>Deploy</code> button under the Deployment section and wait for it to finish. Once done, you can visit your domain and should be able to see your app live!</p>
 
-<hr />
+<h2>9- Last step</h2>
 
-<h2 id="getting-started-building-your-site">Building Your Site</h2>
+<p>Before to make changes to your master branch and enjoy the quick deploy functionality, you need to modify the script section as follow:</p>
 
-<p>Now that you’ve edited your configuration variables and know how to customize your styles and content, let’s build the site.</p>
+<ul>
+<li>Replace:</li>
+</ul>
 
-<pre><code class="language-bash"># build static files with Jigsaw
-./vendor/bin/jigsaw build
+<p><code>pm2 start npm --name "nuxt-forge.com" --watch -- start</code></p>
 
-# compile assets with Laravel Mix
-# options: dev, prod
-npm run dev
-</code></pre>
+<ul>
+<li>With:</li>
+</ul>
+
+<p><code>pm2 restart nuxt-forge.com</code></p>
+
+<p>This way, each time you push new changes to your master branch, the deployment process will also restart your node.js server instance with pm2 to take into account the changes.</p>
+
+<p>Don't forget to click on <code>Save Script</code>.</p>
         </div>
     </div>
 </section>
